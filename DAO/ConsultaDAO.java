@@ -239,7 +239,7 @@ public class ConsultaDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String updateQuery = "UPDATE consultasrealizadas " + "SET textoAvaliacao = ?, " + "estrelas = ? " + "WHERE "
+		String updateQuery = "UPDATE consultas " + "SET textoAvaliacao = ?, " + "estrelas = ? " + "WHERE "
 				+ "idConsulta = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
@@ -436,7 +436,7 @@ public class ConsultaDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String selectQuery = "SELECT * FROM consultasrealizadas WHERE cpf_paciente = ? AND estrelas = ?";
+		String selectQuery = "SELECT * FROM consultas WHERE cpf_paciente = ? AND estrelas = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
