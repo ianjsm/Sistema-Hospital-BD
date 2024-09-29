@@ -14,30 +14,43 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="624.0" style="-fx-background-color: #D2E0FB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiControllers.GerarRelatorioMedicoController">
 	<children>
-		<ChoiceBox fx:id="choiceBoxEscolha" layoutX="14.0" layoutY="185.0" prefWidth="150.0" />
-		<Button fx:id="botaoGerarRelatorio" layoutX="480.0" layoutY="382.0" mnemonicParsing="false" onAction="#cliqueBotaoGerarRelatorio" style="-fx-background-color: #39A7FF;" text="GERAR RELATÓRIO" textFill="WHITE">
+		<ChoiceBox fx:id="choiceBoxEscolha" layoutX="14.0" layoutY="198.0" prefHeight="26.0" prefWidth="166.0" />
+		<Button fx:id="botaoGerarRelatorio" layoutX="472.0" layoutY="407.0" mnemonicParsing="false" onAction="#cliqueBotaoGerarRelatorio" style="-fx-background-color: #f29e23;" text="GERAR RELATÓRIO" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<DatePicker fx:id="datePickerInicio" layoutX="212.0" layoutY="185.0" promptText="Data inicial" />
-		<TableView fx:id="tableViewRelatorio" layoutX="136.0" layoutY="274.0" prefHeight="242.0" prefWidth="327.0">
+		<DatePicker fx:id="datePickerInicio" layoutX="225.0" layoutY="198.0" promptText="Data Inicial" />
+		<TableView fx:id="tableViewRelatorio" layoutX="136.0" layoutY="286.0" prefHeight="242.0" prefWidth="327.0">
 			<columns>
 				<TableColumn fx:id="colunaID" prefWidth="104.0" text="ID da Consulta" />
 				<TableColumn fx:id="colunaCPF" prefWidth="128.0" text="CPF do paciente" />
 				<TableColumn fx:id="ColunaData" prefWidth="96.0" text="Data" />
 			</columns>
 		</TableView>
-		<DatePicker fx:id="datePickerFinal" layoutX="212.0" layoutY="222.0" promptText="Data final" />
-		<Text fill="#124991" layoutX="14.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione:">
+		<DatePicker fx:id="datePickerFinal" layoutX="224.0" layoutY="238.0" promptText="Data Final" />
+		<Text fill="#124991" layoutX="14.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione:">
 			<font>
-				<Font name="System Bold" size="14.0" />
+				<Font name="System Bold" size="15.0" />
 			</font>
 		</Text>
-		<ImageView fitHeight="144.0" fitWidth="175.0" layoutX="212.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fitHeight="106.0" fitWidth="129.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/nomelogo.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/logo.png" />
 			</image>
 		</ImageView>
+      <ImageView fitHeight="135.0" fitWidth="399.0" layoutX="113.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/Design%20sem%20nome%20(10).png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="187.0" layoutX="136.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/clinica.png" />
+         </image>
+      </ImageView>
 	</children>
 </AnchorPane>

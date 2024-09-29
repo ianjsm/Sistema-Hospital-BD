@@ -13,19 +13,19 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="430.0" style="-fx-background-color: #D2E0FB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiControllers.TelaLoginMedicoController">
 	<children>
-		<PasswordField fx:id="textFieldSenha" layoutX="140.0" layoutY="248.0" promptText="Senha" />
+		<PasswordField fx:id="textFieldSenha" layoutX="140.0" layoutY="255.0" promptText="Senha" />
 		<TextField fx:id="textFieldUsuario" layoutX="140.0" layoutY="215.0" promptText="Usuário (CRM)" />
-		<Button fx:id="botaoLogin" layoutX="187.0" layoutY="296.0" mnemonicParsing="false" onAction="#fazerLogin" onMouseClicked="#fazerLogin" style="-fx-background-color: #39A7FF;" text="Entrar" textFill="WHITE">
+		<Button fx:id="botaoLogin" layoutX="180.0" layoutY="298.0" mnemonicParsing="false" onAction="#fazerLogin" onMouseClicked="#fazerLogin" style="-fx-background-color: #f29e23;" text="ENTRAR" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</Button>
-		<Label layoutX="20.0" layoutY="157.0" text="Para fazer login como médico, preencha os campos abaixo:" textFill="#124991">
+		<Label layoutX="7.0" layoutY="171.0" text="Para fazer login como médico, preencha os campos abaixo:" textFill="#124991">
 			<font>
-				<Font name="System Bold" size="14.0" />
+				<Font name="System Bold" size="15.0" />
 			</font>
 		</Label>
 		<Label fx:id="labelCliqueCadastro" layoutX="252.0" layoutY="348.0" onMouseClicked="#cliqueBotaoCadastrarMedico" text="Cadastre-se" textFill="#124991" underline="true">
@@ -36,9 +36,9 @@
 				<Font size="14.0" />
 			</font>
 		</Label>
-		<ImageView fitHeight="122.0" fitWidth="160.0" layoutX="134.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fitHeight="136.0" fitWidth="170.0" layoutX="130.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/nomelogo.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/nomelogo.png" />
 			</image>
 		</ImageView>
 		<Text layoutX="102.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Não possui uma conta?">

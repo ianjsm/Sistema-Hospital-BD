@@ -14,64 +14,70 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="494.0" prefWidth="600.0" style="-fx-background-color: #D2E0FB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiControllers.EditarPacienteController">
 	<children>
-		<RadioButton fx:id="radioButtonNome" layoutX="360.0" layoutY="208.0" mnemonicParsing="false" text="Nome">
+		<RadioButton fx:id="radioButtonNome" layoutX="36.0" layoutY="204.0" mnemonicParsing="false" text="Nome">
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</RadioButton>
-		<RadioButton fx:id="radioButtonIdade" layoutX="360.0" layoutY="237.0" mnemonicParsing="false" text="Data de nascimento">
+		<RadioButton fx:id="radioButtonIdade" layoutX="36.0" layoutY="235.0" mnemonicParsing="false" text="Data de nascimento">
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</RadioButton>
-		<RadioButton fx:id="radioButtonPlano" layoutX="360.0" layoutY="266.0" mnemonicParsing="false" text="Plano de Saúde">
+		<RadioButton fx:id="radioButtonPlano" layoutX="36.0" layoutY="299.0" mnemonicParsing="false" text="Plano de Saúde">
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</RadioButton>
-		<RadioButton fx:id="radioButtonSenha" layoutX="360.0" layoutY="325.0" mnemonicParsing="false" text="Senha">
+		<RadioButton fx:id="radioButtonSenha" layoutX="36.0" layoutY="362.0" mnemonicParsing="false" text="Senha">
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</RadioButton>
-		<RadioButton fx:id="radioButtonCPF" layoutX="360.0" layoutY="296.0" mnemonicParsing="false" text="CPF">
+		<RadioButton fx:id="radioButtonCPF" layoutX="36.0" layoutY="331.0" mnemonicParsing="false" text="CPF">
 			<font>
-				<Font size="13.0" />
+				<Font size="14.0" />
 			</font>
 		</RadioButton>
-		<TextField fx:id="textFieldEditar" layoutX="120.0" layoutY="205.0" />
-		<Button fx:id="botaoEditar" layoutX="272.0" layoutY="406.0" mnemonicParsing="false" onAction="#editarDado" style="-fx-background-color: #39A7FF;" text="EDITAR" textFill="WHITE">
+		<TextField fx:id="textFieldEditar" layoutX="353.0" layoutY="246.0" prefHeight="26.0" prefWidth="198.0" />
+		<Button fx:id="botaoEditar" layoutX="210.0" layoutY="426.0" mnemonicParsing="false" onAction="#editarDado" style="-fx-background-color: #f29e23;" text="CONFIRMAR EDIÇÃO" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
 		</Button>
 		<Label fx:id="labelMensagem" layoutX="256.0" layoutY="444.0" />
-		<Text fill="#124991" layoutX="130.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o novo dado:">
-			<font>
-				<Font name="System Bold" size="14.0" />
-			</font>
-		</Text>
-		<Text fill="#124991" layoutX="360.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qual campo deseja editar?">
-			<font>
-				<Font name="System Bold" size="14.0" />
-			</font>
-		</Text>
-		<Text fill="#124991" layoutX="213.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Editar Dados Paciente">
+		<Text fill="#124991" layoutX="377.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Digite o novo dado:">
 			<font>
 				<Font name="System Bold" size="16.0" />
 			</font>
 		</Text>
-		<ImageView fitHeight="26.0" fitWidth="150.0" layoutX="126.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+		<Text fill="#124991" layoutX="36.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Qual campo deseja editar?">
+			<font>
+				<Font name="System Bold" size="16.0" />
+			</font>
+		</Text>
+		<ImageView fitHeight="26.0" fitWidth="150.0" layoutX="122.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/clinica.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/clinica.png" />
 			</image>
 		</ImageView>
-		<ImageView fitHeight="90.0" fitWidth="113.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fitHeight="98.0" fitWidth="108.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/logo.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/logo.png" />
 			</image>
 		</ImageView>
-      <DatePicker fx:id="DatePickerEditar" layoutX="94.0" layoutY="312.0" />
-      <Label layoutX="-22.0" layoutY="287.0" text="Caso deseje editar a data de nascimento, selecione a nova data abaixo:" />
+      <DatePicker fx:id="DatePickerEditar" layoutX="38.0" layoutY="259.0" promptText="Insira nova data" />
+      <Label layoutX="60.0" layoutY="283.0">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Label>
+      <ImageView fitHeight="90.0" fitWidth="374.0" layoutX="135.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/Design%20sem%20nome%20(9).png" />
+         </image>
+      </ImageView>
 	</children>
 </AnchorPane>

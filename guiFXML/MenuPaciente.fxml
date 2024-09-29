@@ -5,47 +5,59 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="664.0" style="-fx-background-color: #D2E0FB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiControllers.MenuPacienteController">
 	<children>
-		<Button fx:id="botaoAgendarConsulta" layoutX="353.0" layoutY="164.0" mnemonicParsing="false" onAction="#cliqueBotaoAgendarConsulta" style="-fx-background-color: #39A7FF;" text="AGENDAR CONSULTA" textFill="WHITE">
+		<Button fx:id="botaoAgendarConsulta" layoutX="337.0" layoutY="164.0" mnemonicParsing="false" onAction="#cliqueBotaoAgendarConsulta" style="-fx-background-color: #f29e23;" text="AGENDAR CONSULTA" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<Button fx:id="botaoCancelarConsulta" layoutX="351.0" layoutY="215.0" mnemonicParsing="false" onAction="#cliqueBotaoCancelarConsulta" style="-fx-background-color: #39A7FF;" text="CANCELAR CONSULTA" textFill="WHITE">
+		<Button fx:id="botaoCancelarConsulta" layoutX="335.0" layoutY="212.0" mnemonicParsing="false" onAction="#cliqueBotaoCancelarConsulta" style="-fx-background-color: #39A7FF;" text="CANCELAR CONSULTA" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<Button fx:id="botaoEditarDados" layoutX="370.0" layoutY="361.0" mnemonicParsing="false" onAction="#cliqueBotaoEditarDados" style="-fx-background-color: #39A7FF;" text="EDITAR DADOS" textFill="WHITE">
+		<Button fx:id="botaoEditarDados" layoutX="359.0" layoutY="372.0" mnemonicParsing="false" onAction="#cliqueBotaoEditarDados" style="-fx-background-color: #f29e23;" text="EDITAR DADOS" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<Button fx:id="botaoGerarRelatorios" layoutX="360.0" layoutY="266.0" mnemonicParsing="false" onAction="#botaoGerarRelatoriosPaciente" style="-fx-background-color: #39A7FF;" text="GERAR RELATÓRIO" textFill="WHITE">
+		<Button fx:id="botaoGerarRelatorios" layoutX="346.0" layoutY="264.0" mnemonicParsing="false" onAction="#botaoGerarRelatoriosPaciente" style="-fx-background-color: #f29e23;" text="GERAR RELATÓRIO" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<Button fx:id="botaoAvaliarConsulta" layoutX="364.0" layoutY="315.0" mnemonicParsing="false" onAction="#cliqueBotaoAvaliarConsulta" style="-fx-background-color: #39A7FF;" text="AVALIAR MÉDICO" textFill="WHITE">
+		<Button fx:id="botaoAvaliarConsulta" layoutX="349.0" layoutY="316.0" mnemonicParsing="false" onAction="#cliqueBotaoAvaliarConsulta" style="-fx-background-color: #39A7FF;" text="AVALIAR MÉDICO" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
-		<AnchorPane prefHeight="480.0" prefWidth="190.0">
-			<children>
-				<ImageView fitHeight="483.0" fitWidth="190.0" layoutX="-2.0" pickOnBounds="true" preserveRatio="true">
-					<image>
-						<Image url="@../../../../../Downloads/Texto%20do%20seu%20parágrafo%20(3).png" />
-					</image>
-				</ImageView>
-			</children>
-		</AnchorPane>
 		<ImageView fitHeight="136.0" fitWidth="177.0" layoutX="331.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/nomelogo.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/nomelogo.png" />
 			</image>
 		</ImageView>
+      <ImageView fitHeight="565.0" fitWidth="485.0" layoutX="-151.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/Texto%20do%20seu%20parágrafo%20(1).png" />
+         </image>
+      </ImageView>
 	</children>
 </AnchorPane>

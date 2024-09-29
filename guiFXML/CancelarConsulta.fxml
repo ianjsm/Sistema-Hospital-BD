@@ -12,25 +12,28 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="389.0" prefWidth="531.0" style="-fx-background-color: #D2E0FB;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="guiControllers.CancelarConsultaController">
 	<children>
-		<ComboBox fx:id="comboBoxConsultasMarcadas" layoutX="190.0" layoutY="231.0" prefWidth="150.0">
+		<ComboBox fx:id="comboBoxConsultasMarcadas" layoutX="102.0" layoutY="224.0" prefHeight="26.0" prefWidth="327.0">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
 		</ComboBox>
-		<Button fx:id="botaoCancelamento" layoutX="197.0" layoutY="288.0" mnemonicParsing="false" onAction="#cliqueBotaoCancelar" onMouseClicked="#cliqueBotaoCancelar" style="-fx-background-color: #39A7FF;" text="CANCELAR CONSULTA" textFill="WHITE">
+		<Button fx:id="botaoCancelamento" layoutX="181.0" layoutY="305.0" mnemonicParsing="false" onAction="#cliqueBotaoCancelar" onMouseClicked="#cliqueBotaoCancelar" style="-fx-background-color: #f29e23;" text="CANCELAR CONSULTA" textFill="WHITE">
 			<cursor>
 				<Cursor fx:constant="HAND" />
 			</cursor>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
 		</Button>
 		<Label fx:id="labelMensagem" layoutX="175.0" layoutY="335.0" />
-		<Text fill="#124991" layoutX="139.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha a consulta que será cancelada:">
+		<Text fill="#124991" layoutX="121.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Escolha a consulta que será cancelada:">
 			<font>
-				<Font name="System Bold" size="14.0" />
+				<Font name="System Bold" size="16.0" />
 			</font>
 		</Text>
-		<ImageView fitHeight="116.0" fitWidth="150.0" layoutX="191.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+		<ImageView fitHeight="131.0" fitWidth="174.0" layoutX="180.0" pickOnBounds="true" preserveRatio="true">
 			<image>
-				<Image url="@../../../../../Downloads/nomelogo.png" />
+				<Image url="@../../../../../OneDrive/Imagens/Saved%20Pictures/nomelogo.png" />
 			</image>
 		</ImageView>
 	</children>
