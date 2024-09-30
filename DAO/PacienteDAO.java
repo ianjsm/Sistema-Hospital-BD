@@ -249,14 +249,13 @@ public class PacienteDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String selectQuery = "SELECT * FROM consultas WHERE cpf_paciente = ? AND realizada = ? AND dataConsulta BETWEEN ? AND ? ";
+		String selectQuery = "SELECT * FROM consultas WHERE cpf_paciente = ? AND dataConsulta BETWEEN ? AND ? ";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
 			preparedStatement.setString(1, TelaLoginPacienteController.getcpfLogado());
-			preparedStatement.setString(2, "s");
-			preparedStatement.setDate(3, inicio);
-			preparedStatement.setDate(4, fim);
+			preparedStatement.setDate(2, inicio);
+			preparedStatement.setDate(3, fim);
 
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
@@ -282,20 +281,19 @@ public class PacienteDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String selectQuery = "SELECT id, crm_Medico, dataConsulta FROM consultas WHERE cpf_paciente = ? AND realizada = ? AND dataConsulta BETWEEN ? AND ? ";
+		String selectQuery = "SELECT id, crm_medico, data_consulta FROM agendamentos WHERE cpf_paciente = ? AND data_consulta BETWEEN ? AND ? ";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
 			preparedStatement.setString(1, TelaLoginPacienteController.getcpfLogado());
-			preparedStatement.setString(2, "n");
-			preparedStatement.setDate(3, inicio);
-			preparedStatement.setDate(4, fim);
+			preparedStatement.setDate(2, inicio);
+			preparedStatement.setDate(3, fim);
 
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
 					int id = resultSet.getInt("id");
 					String crm = resultSet.getString("crm_Medico");
-					Date data = resultSet.getDate("dataConsulta");
+					Date data = resultSet.getDate("data_consulta");
 					Consulta consulta = new Consulta(id, crm, null, data);
 					lista.add(consulta);
 				}

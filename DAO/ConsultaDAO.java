@@ -116,13 +116,12 @@ public class ConsultaDAO {
 			e.printStackTrace();
 		}
 
-		String countQuery = "SELECT COUNT(*) AS contador FROM consultas WHERE crm_Medico = ? AND dataConsulta = ? AND realizada = ?";
+		String countQuery = "SELECT COUNT(*) AS contador FROM agendamentos WHERE crm_medico = ? AND data_consulta = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(countQuery)) {
 
 			preparedStatement.setString(1, crm);
 			preparedStatement.setDate(2, dataEscolhida);
-			preparedStatement.setString(3, "n");
 
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
@@ -201,9 +200,10 @@ public class ConsultaDAO {
 			}
 			comboBoxMedicosDisponiveis.setValue(null);
 			datePickerDatas.setValue(null);
+			return false;
 		}
 
-		String insertQuery = "INSERT INTO consultas (crm_Medico, cpf_paciente, dataConsulta, realizada, valorConsulta) VALUES (?, ?, ?, ?, ?)";
+		String insertQuery = "INSERT INTO agendamentos (crm_medico, cpf_paciente, data_consulta) VALUES (?, ?, ?)";
 
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
@@ -211,8 +211,6 @@ public class ConsultaDAO {
 			preparedStatement.setString(1, crmMedico);
 			preparedStatement.setString(2, cpfPaciente);
 			preparedStatement.setDate(3, dataEscolhida);
-			preparedStatement.setString(4, "n");
-			preparedStatement.setDouble(5, 0);
 
 			int rowsAffected = preparedStatement.executeUpdate();
 
@@ -240,7 +238,7 @@ public class ConsultaDAO {
 		String password = "86779791";
 
 		String updateQuery = "UPDATE consultas " + "SET textoAvaliacao = ?, " + "estrelas = ? " + "WHERE "
-				+ "idConsulta = ?";
+				+ "id = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
@@ -268,18 +266,17 @@ public class ConsultaDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String selectQuery = "SELECT * FROM consultas WHERE cpf_paciente = ? AND realizada = ? ";
+		String selectQuery = "SELECT * FROM agendamentos WHERE cpf_paciente = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
 			System.out.println(TelaLoginPacienteController.getcpfLogado() + "cancelando cons");
 			preparedStatement.setString(1, TelaLoginPacienteController.getcpfLogado());
-			preparedStatement.setString(2, "n");
 
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
 					int numeroConsulta = resultSet.getInt("id");
-					String data = resultSet.getString("dataConsulta");
+					String data = resultSet.getString("data_consulta");
 					String infoConsulta = "Nº da consulta: " + numeroConsulta + " - " + data;
 					comboBoxConsultasMarcadas.getItems().addAll(infoConsulta);
 				}
@@ -376,7 +373,7 @@ public class ConsultaDAO {
 		}
 
 		if (cpf_paciente_espera == null) {
-			String updateQuery = "DELETE FROM consultas WHERE id = ?";
+			String updateQuery = "DELETE FROM agendamentos WHERE id = ?";
 			try (Connection connection = DriverManager.getConnection(url, username, password);
 					PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
@@ -402,7 +399,7 @@ public class ConsultaDAO {
 				return false;
 			}
 		} else {
-			String updateQuery = "UPDATE consultas SET cpf_paciente = ? WHERE id = ?";
+			String updateQuery = "UPDATE agendamentos SET cpf_paciente = ? WHERE id = ?";
 			try (Connection connection = DriverManager.getConnection(url, username, password);
 					PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
@@ -464,19 +461,18 @@ public class ConsultaDAO {
 		String username = "root";
 		String password = "86779791";
 
-		String selectQuery = "SELECT * FROM consultas WHERE crm_Medico = ? AND realizada = ?";
+		String selectQuery = "SELECT * FROM agendamentos WHERE crm_medico = ?";
 		try (Connection connection = DriverManager.getConnection(url, username, password);
 				PreparedStatement preparedStatement = connection.prepareStatement(selectQuery)) {
 
 			preparedStatement.setString(1, TelaLoginMedicoController.getcrmLogado());
-			preparedStatement.setString(2, "n");
 
 			try (ResultSet resultSet = preparedStatement.executeQuery()) {
 				while (resultSet.next()) {
 					String cpfPaciente = resultSet.getString("cpf_paciente");
 					idConsultaEscolhida = resultSet.getInt("id");
-					String data = resultSet.getString("dataConsulta");
-					dataEscolhida = resultSet.getDate("dataConsulta");
+					String data = resultSet.getString("data_consulta");
+					dataEscolhida = resultSet.getDate("data_consulta");
 					String infoConsulta = "CPF do paciente: " + cpfPaciente + " - " + data;
 					choiceBoxConsultas.getItems().add(infoConsulta);
 				}
@@ -555,29 +551,41 @@ public class ConsultaDAO {
 			valorConsulta = 0;
 		}
 
-		String updateQuery = "UPDATE consultas SET crm_Medico = ?, cpf_paciente = ?, dataConsulta = ?, realizada = ?, valorConsulta = ?, textoAvaliacao = ?, estrelas = ?, sintomas = ?, tratamento = ?, exames = ?, medicamentos = ? "
-				+ "WHERE id = ?";
+		String insertQuery = "INSERT INTO consultas (crm_Medico, cpf_paciente, dataConsulta, valorConsulta, textoAvaliacao, estrelas, sintomas, tratamento, exames, medicamentos) "
+                + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		try (Connection connection = DriverManager.getConnection(url, username, password);
-				PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+				PreparedStatement preparedStatement = connection.prepareStatement(insertQuery)) {
 
 			preparedStatement.setString(1, TelaLoginMedicoController.getcrmLogado());
-			preparedStatement.setString(2, ConsultaDAO.cpfPacienteDaConsulta);
-			preparedStatement.setDate(3, ConsultaDAO.dataEscolhida);
-			preparedStatement.setString(4, "s");
-			preparedStatement.setDouble(5, valorConsulta);
-			preparedStatement.setString(6, "");
-			preparedStatement.setDouble(7, 0);
-			preparedStatement.setString(8, sintomas);
-			preparedStatement.setString(9, tratamento);
-			preparedStatement.setString(10, exames);
-			preparedStatement.setString(11, medicamentos);
-			preparedStatement.setInt(12, ConsultaDAO.idConsultaEscolhida);
+		    preparedStatement.setString(2, ConsultaDAO.cpfPacienteDaConsulta);
+		    preparedStatement.setDate(3, ConsultaDAO.dataEscolhida);
+		    preparedStatement.setDouble(4, valorConsulta);
+		    preparedStatement.setString(5, ""); // ajuste conforme necessário
+		    preparedStatement.setDouble(6, 0); // ajuste conforme necessário
+		    preparedStatement.setString(7, sintomas);
+		    preparedStatement.setString(8, tratamento);
+		    preparedStatement.setString(9, exames);
+		    preparedStatement.setString(10, medicamentos);
 
 			int rowsAffected = preparedStatement.executeUpdate();
 
 			if (rowsAffected > 0) {
 				System.out.println("cosnulta add as realizas");
+				String deleteQuery = "DELETE FROM agendamentos WHERE id = ?";
+	            try (PreparedStatement deleteStatement = connection.prepareStatement(deleteQuery)) {
+	                deleteStatement.setInt(1, idConsultaEscolhida);
+
+	                int deleteRowsAffected = deleteStatement.executeUpdate();
+
+	                if (deleteRowsAffected > 0) {
+	                    System.out.println("Consulta removida dos agendamentos com sucesso.");
+	                } else {
+	                    System.out.println("Nenhuma consulta encontrada para remover dos agendamentos.");
+	                }
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
 				return true;
 			} else {
 				System.out.println("consultas naaaaaaaao add as realizasd");
